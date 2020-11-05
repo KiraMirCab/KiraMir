@@ -23,6 +23,7 @@ public class PruebaMenu {
 
             switch (opcion) {
                 case 0:
+                    System.out.println("Aadios!");
                     break;
                 case 1:
                     System.out.println("El resultado es " + (a + b));
@@ -36,6 +37,6 @@ public class PruebaMenu {
                 default:
                     System.out.println("Opción incorrecta");
             }
-        } while (!(opcion == 0));
+        } while (opcion != 0);
     }
 }
