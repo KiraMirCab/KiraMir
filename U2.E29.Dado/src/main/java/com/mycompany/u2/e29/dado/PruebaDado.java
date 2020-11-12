@@ -17,13 +17,10 @@ public class PruebaDado {
             num = sc.nextInt();
         }
         
-        boolean coincide = false;
-        while (!coincide){
-            int tirada = d.tirada();
-            if (tirada == num) {
-                coincide =true;
-            }
+         int tirada = d.tirada(); 
+           while (tirada != num){
             System.out.println(tirada);
+            tirada = d.tirada();
         }
         System.out.println("Lo has conseguido!");
     }

@@ -8,11 +8,15 @@ public class PruebaTablaMulti9Usuario {
         System.out.println("Escribe un nuemro entero para ver su tabla de multiplicacion:");
         int num = sc.nextInt();
         
-        int i = 0;
-        
-        while(i<=10) {
+        for (int i = 0; i <= 10; i++) {
             System.out.println(i+" x "+num+" = "+(i*num));
-            i++;
         }
+        
+//        int i = 0;
+//        
+//        while(i<=10) {
+//            System.out.println(i+" x "+num+" = "+(i*num));
+//            i++;
+//        }
     }
 }

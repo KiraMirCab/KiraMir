@@ -9,10 +9,7 @@ public class Candado {
     }
 
     public boolean intentaAbrir(int num) {
-        if (num == numSecreto) {
-            return true;
-        } else {
-            return false;
+        return num == numSecreto;
         }
     }
-}
+
