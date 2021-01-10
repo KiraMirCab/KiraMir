@@ -4,6 +4,11 @@ public class TarjetaVideo extends Dispositivo {
 
     private int numOperacionesNum, numOperacionesText;
 
+    public TarjetaVideo(String marca, String modelo) {
+        super(marca, modelo);
+    }
+
+    
     public void mostrarNumeros(int elem) {
         if (!this.isEncendido()) {
             System.out.println("El equipo está apagado");
@@ -32,4 +37,7 @@ public class TarjetaVideo extends Dispositivo {
         return super.toString()+"TarjetaVideo{" + "numOperacionesNum=" + numOperacionesNum + ", numOperacionesText=" + numOperacionesText + '}';
     }
     
+      public void resetContadores(){
+    numOperacionesNum = numOperacionesText = 0;
+    };
 }

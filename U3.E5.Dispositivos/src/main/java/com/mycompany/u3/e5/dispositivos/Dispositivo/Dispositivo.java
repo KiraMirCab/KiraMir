@@ -2,11 +2,17 @@ package com.mycompany.u3.e5.dispositivos.Dispositivo;
 
 import java.util.Objects;
 
-public class Dispositivo {
+public abstract class Dispositivo {
 
     private String marca, modelo;
     private boolean encendido;
 
+    public Dispositivo(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    
     public void encender() {
         if (encendido) {
             System.out.println("Ya está encendido.");
@@ -85,5 +91,5 @@ public class Dispositivo {
         return true;
     }
 
-    
+    public abstract void resetContadores();
 }

@@ -5,6 +5,11 @@ public class MemoriaRAM extends Dispositivo {
     private int[] array = new int[TAM];
     private int numOperacionesLect, numOperacionesEsc;
 
+    public MemoriaRAM(String marca, String modelo) {
+        super(marca, modelo);
+    }
+
+    
     public void escribir(int pos, int elem) {
         if (!isEncendido()) {
             System.out.println("El equipo está apagado");
@@ -46,4 +51,9 @@ public class MemoriaRAM extends Dispositivo {
     public String toString() {
         return super.toString()+"MemoriaRAM{" + "numOperacionesLect=" + numOperacionesLect + ", numOperacionesEsc=" + numOperacionesEsc + '}';
     }
+    
+    public void resetContadores(){
+    numOperacionesLect = numOperacionesEsc = 0;
+    };
+
 }

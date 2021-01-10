@@ -4,6 +4,14 @@ public class Procesador extends Dispositivo {
 
     private int numOperaciones;
 
+    public Procesador(String marca, String modelo) {
+        super(marca, modelo);
+    }
+
+    
+    
+    
+
     public int sumar(int num1, int num2) {
         if (!isEncendido()) {
             System.out.println("El equipo está apagado");
@@ -55,5 +63,7 @@ public class Procesador extends Dispositivo {
         return super.toString()+"Procesador{" + "numOperaciones=" + numOperaciones + '}';
     }
     
-    
+     public void resetContadores(){
+    numOperaciones = 0;
+    };
 }
