@@ -1,4 +1,4 @@
-package com.mycompany.u3.e14.interfazfichero;
+package com.mycompany.u3.e14.interfazfichero2;
 
 public interface InterfazMensajeMail {
 
