@@ -1,13 +1,13 @@
-package com.mycompany.u3.e14.interfazfichero;
+package com.mycompany.u3.e14.interfazfichero2;
 
 public class MensajeMail implements InterfazMensajeMail {
 
-    private String asunto = contenido = remitente = destinatario = "";
-    private InterfazFichero ficheroAdjunto;
     private String destinatario;
     private String remitente;
     private String contenido;
-    public static final InterfazFichero NOT_FOUND = new Fichero();
+    private String asunto = contenido = remitente = destinatario = "";
+    private InterfazFichero ficheroAdjunto;
+    public static final InterfazFichero VOID = new Fichero();
 
     @Override
     public void setAsunto(String asunto) {
@@ -39,7 +39,7 @@ public class MensajeMail implements InterfazMensajeMail {
 
     @Override
     public void setRemitente(String direccionEmail) {
-        if (direccionEmail.contains("@") && direccionEmail.length() >= 5) {
+        if (remitente != null && direccionEmail.contains("@") && direccionEmail.length() >= 5) {
             remitente = direccionEmail;
         } else {
             System.out.println("Error: conmprueba la dirección del remitente");
@@ -53,7 +53,7 @@ public class MensajeMail implements InterfazMensajeMail {
 
     @Override
     public void setDestinatario(String direccionEmail) {
-        if (direccionEmail.contains("@") && direccionEmail.length() >= 5) {
+        if (remitente != null && direccionEmail.contains("@") && direccionEmail.length() >= 5) {
             destinatario = direccionEmail;
         } else {
             System.out.println("Error: conmprueba la dirección del destinatario");
@@ -67,23 +67,19 @@ public class MensajeMail implements InterfazMensajeMail {
 
     @Override
     public void setFicheroAdjunto(InterfazFichero fichero) {
-        if (fichero == NOT_FOUND) {
-            System.out.println("No se puede meter datos nulos");
-        } else {
-            ficheroAdjunto = fichero;
-        }
+        ficheroAdjunto = fichero;
     }
 
     @Override
     public void eliminaFicheroAdjunto() {
-        ficheroAdjunto = NOT_FOUND;
+        ficheroAdjunto = VOID;
     }
 
     @Override
     public InterfazFichero getFicheroAdjunto() {
-        if (ficheroAdjunto == NOT_FOUND) {
+        if (ficheroAdjunto == VOID) {
             System.out.println("No tienes ningún fichero adjunto");
-            return NOT_FOUND;
+            return VOID;
         } else {
             return ficheroAdjunto;
         }
@@ -101,12 +97,15 @@ public class MensajeMail implements InterfazMensajeMail {
                 System.out.println("OJO: estás enviando un mensaje sin contenido");
             }
 
-            if (ficheroAdjunto == NOT_FOUND) {
+            if (ficheroAdjunto == VOID) {
                 System.out.println("Mensaje enviado de " + remitente + " a " + destinatario + " con asunto " + asunto);
             } else {
-                System.out.println("Mensaje enviado de " + remitente + " a " + destinatario + " con asunto " + asunto + " y con un fichero adjunto de " + ficheroAdjunto.getTamanioEnBytes() + " bytes");
+                System.out.println("Mensaje enviado de " + remitente + " a " + destinatario + " con asunto '" + asunto + "' y con un fichero adjunto de " + ficheroAdjunto.getTamanioEnBytes() + " bytes");
             }
         }
     }
+
+    
+    
 
 }
