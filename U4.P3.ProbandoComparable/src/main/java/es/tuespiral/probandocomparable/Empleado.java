@@ -15,6 +15,7 @@ public class Empleado implements Comparable {
     @Override
     public int compareTo(Object obj) {
         Empleado emp = (Empleado) obj;
+<<<<<<< HEAD
         if (this.salario < emp.getSalario())
             return -1;
         else
@@ -33,6 +34,23 @@ public class Empleado implements Comparable {
 //        return resultado;
 //    }
 
+=======
+        int resultado = (int) (this.salario - emp.getSalario());
+        return resultado;
+    }
+    
+
+    // Consideramos que un elemento A < B 
+    // si A.getSalario() < B.getSalario()
+//        if (this.salario < emp.getSalario())
+//            return -1;
+//        else
+//            if (this.salario > emp.getSalario())
+//                return 1;
+//            else 
+//                return 0;
+// }
+>>>>>>> dff04ebedaf3466c43b31049f440dfb37687f677
 
 public String getNombre() {
         return nombre;
