@@ -15,6 +15,26 @@ public class Empleado implements Comparable {
     @Override
     public int compareTo(Object obj) {
         Empleado emp = (Empleado) obj;
+<<<<<<< HEAD
+        if (this.salario < emp.getSalario())
+            return -1;
+        else
+            if (this.salario > emp.getSalario())
+                return 1;
+            else 
+                return 0;
+ 
+    }
+    
+    // Otra forma de comparar es realizando una resta
+    // Esta técnica es la que se usa en la práctica
+//    public int compareTo(Object obj) {
+//        Empleado emp = (Empleado) obj;
+//        int resultado = (int) (this.salario - emp.getSalario());
+//        return resultado;
+//    }
+
+=======
         int resultado = (int) (this.salario - emp.getSalario());
         return resultado;
     }
@@ -30,6 +50,7 @@ public class Empleado implements Comparable {
 //            else 
 //                return 0;
 // }
+>>>>>>> dff04ebedaf3466c43b31049f440dfb37687f677
 
 public String getNombre() {
         return nombre;
