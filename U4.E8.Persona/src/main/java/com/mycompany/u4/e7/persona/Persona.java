@@ -58,7 +58,7 @@ public class Persona implements Comparable {
 //         }
 //     }
     
- //      Ej 9.        
+ //      Ej 10.        
     @Override
     public int compareTo(Object o) {
         Persona p = (Persona) o;
