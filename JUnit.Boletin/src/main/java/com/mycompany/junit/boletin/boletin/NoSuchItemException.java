@@ -1,7 +1,0 @@
-package com.mycompany.junit.boletin.boletin;
-
-public class NoSuchItemException extends Exception {
-	public NoSuchItemException(String message) {
-		super(message);
-	}
-}
