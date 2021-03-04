@@ -5,8 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 
 /**
  *
@@ -29,7 +27,7 @@ public class CuentaTest {
     @Test
     public void testIngresar_double() throws Exception {
         c.ingresar(1423.0);
-        assertThat(1423.0, is(c.getSaldo()));
+        assertEquals(1423.0, c.getSaldo());
     }
 
     @Test
@@ -45,28 +43,28 @@ public class CuentaTest {
     public void testRetirar_double() throws Exception {
         c.ingresar(1500.0);
         c.retirar(150.0);
-        assertThat(1350.0, is(c.getSaldo()));
+        assertEquals(1350.0, c.getSaldo());
     }
 
     @Test
     public void testIngresar_String_double() throws Exception {
         c.ingresar("Nomina Pollitos Inc", 1423.0);
-        assertThat(1423.0, is(c.getSaldo()));
+        assertEquals(1423.0, c.getSaldo());
     }
 
     @Test
     public void testRetirar_String_double() throws Exception {
         c.ingresar("Ingreso", 1500.0);
         c.retirar("Sacar efectivo", 150.0);
-        assertThat(1350.0, is(c.getSaldo()));
+        assertEquals(1350.0, c.getSaldo());
     }
 
     @Test
     public void testGetSaldo() throws Exception {
         c.ingresar("Ingreso", 1500.0);
-        assertThat(c.getSaldo(), is(1500.0));
+        assertEquals(c.getSaldo(), 1500.0);
         c.retirar("Sacar efectivo", 1400);
-        assertThat(c.getSaldo(), is(100.0));
+        assertEquals(c.getSaldo(), 100.0);
     }
 
     @Test
@@ -75,13 +73,13 @@ public class CuentaTest {
 		m.setConcepto("Devuelto por hacienda");
 		m.setImporte(986.0);
 		c.addMovimiento(m);
-		assertThat(c.getSaldo(), is(986.0));
+		assertEquals(c.getSaldo(), 986.0);
 		
 		Movimiento mov = new Movimiento();
 		mov.setConcepto("Pago Mercadona");
 		mov.setImporte(-125.6);
 		c.addMovimiento(mov);
-		assertThat(c.getSaldo(), is(860.4));	
+		assertEquals(c.getSaldo(), 860.4);	
     }
 
 }

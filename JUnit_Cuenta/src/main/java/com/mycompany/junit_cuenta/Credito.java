@@ -21,7 +21,7 @@ public class Credito extends Tarjeta
 	{
 		Movimiento m=new Movimiento();
 		m.setConcepto("Retirada en cajero automatico");
-		x=(x*1.05<3.0 ? 3 : x*1.05);  // A�adimos una comisi�n de un 5%, m�nimo de 3 euros.
+		x=(x*0.05<3.0 ? 3 : x*0.05);  // A�adimos una comisi�n de un 5%, m�nimo de 3 euros.
 		m.setImporte(x);
 		mMovimientos.addElement(m);
 		if (x>getCreditoDisponible())
