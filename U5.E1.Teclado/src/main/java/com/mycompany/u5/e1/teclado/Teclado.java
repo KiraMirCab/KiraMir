@@ -24,7 +24,7 @@ public class Teclado {
     }
 
     public int leeEntero(int minimo, int maximo) {
-        int result = -1;
+        int result;
         do {
             System.out.println("Introduzca un número entero entre " + minimo + " y " + maximo);
             result = leeEntero();

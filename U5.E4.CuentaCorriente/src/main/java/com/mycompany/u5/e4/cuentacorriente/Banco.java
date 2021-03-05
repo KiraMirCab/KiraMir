@@ -21,25 +21,23 @@ public class Banco {
     }
 
     public int abreConexion(long numeroCuenta, String pin) throws CuentaOPinIncorrectoException {
-        int token = -1;
-       if (cuentasCorrientes.containsKey(numeroCuenta)){
+        if (cuentasCorrientes.containsKey(numeroCuenta)) {
             CuentaCorriente cuentaEnCuestion = (CuentaCorriente) cuentasCorrientes.get(numeroCuenta);
+
             if (cuentaEnCuestion.intentaAccesoConPin(pin)) {
-                token = (int) Math.floor(Math.random() * 999999);
+                int token = (int) Math.floor(Math.random() * 999999);
                 cuentasConectadas.put(token, cuentaEnCuestion);
-            } else {
-                throw new CuentaOPinIncorrectoException("Pin de la cuenta incorrecto");
+                return token;
             }
-        } else {
-            throw new CuentaOPinIncorrectoException("Numero de cuenta incorrecto");
         }
-        return token;
+        throw new CuentaOPinIncorrectoException("Numero de cuenta o pin incorrecto");
+
     }
 
     public void realizaPago(int tokenCuenta, double importe) throws TokenIncorrectoException, SaldoInsuficienteException {
         if (cuentasConectadas.containsKey(tokenCuenta)) {
             CuentaCorriente cuentaEnCuestion = (CuentaCorriente) cuentasConectadas.get(tokenCuenta);
-            if (cuentaEnCuestion.consultaSaldo()>= importe) {
+            if (cuentaEnCuestion.consultaSaldo() >= importe) {
                 cuentaEnCuestion.abona(importe);
             } else {
                 throw new SaldoInsuficienteException("Saldo insuficiente");
@@ -48,9 +46,9 @@ public class Banco {
             throw new TokenIncorrectoException("Token incorrecto");
         }
     }
-    
+
     public void cierraConexion (int tokenCuenta) throws TokenIncorrectoException {
-        if (cuentasConectadas.containsKey(tokenCuenta))  {
+        if (cuentasConectadas.containsKey(tokenCuenta)) {
             cuentasConectadas.remove(tokenCuenta);
         } else {
             throw new TokenIncorrectoException("Token incorrecto");
